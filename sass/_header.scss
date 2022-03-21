@@ -1,12 +1,122 @@
 header {
-  --logomark-height: 3em;
-  --logomark-padding: 0 1em;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  padding: 25px;
 
-  h1 {
-    @include logomark;
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    max-width: 100%;
+
+    h1 {
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+}
+
+
+header::after {
+  width: 15vw;
+  height: 15vw;
+  border-radius: 15vw;
+  content: " ";
+  position: absolute;
+
+
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#b224ef), to(#7579ff));
+  background-image: linear-gradient(to top, #b224ef 0%, #7579ff 100%);
+  -webkit-animation: zuz 28s ease infinite;
+  animation: zuz 28s ease infinite;
+}
+
+header::before {
+  content: " ";
+  position: absolute;
+  height: 25vw;
+  width: 25vw;
+  border-radius: 25vw;
+  -webkit-animation: zuz1 28s ease infinite;
+  animation: zuz1 28s ease infinite;
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#b224ef), to(#7579ff));
+  background-image: linear-gradient(to top, #b224ef 0%, #7579ff 100%);
+
+}
+
+@keyframes zuz {
+  0% {
+    top: -8%;
+    background-position: 0% 0%;
+    left: 0%
   }
 
-  h2 {
-    max-width: 30ch;
+  25% {
+    top: 25%;
+    left: 25%;
   }
+
+  50% {
+    top: 75%;
+    left: 0%;
+    background-position: 100% 100%;
+  }
+
+  75% {
+    left: 25%;
+  }
+
+  100% {
+    top: -8%;
+    left: 0%;
+    background-position: 0% 0%;
+  }
+}
+
+@keyframes zuz1 {
+  0% {
+    bottom: -8%;
+    background-position: 100% 100%;
+    right: 0%;
+  }
+
+  25% {
+    bottom: 25%;
+    right: 25%;
+  }
+
+  50% {
+    bottom: 75%;
+    background-position: 0% 0%;
+    right: 0%;
+  }
+
+  75% {
+    right: 25%;
+  }
+
+  100% {
+    bottom: -8%;
+    background-position: 100% 100%;
+    right: 0%
+  }
+}
+
+a.skip-link {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  border: 1px solid;
+  border-radius: 50%;
+  padding: 25px;
+  display: grid;
+  background: white;
+  align-items: center;
+  text-decoration: none;
 }
